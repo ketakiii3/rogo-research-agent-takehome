@@ -34,7 +34,15 @@ app.post("/api/chat", async (req, res) => {
       }
     });
 
-    res.json({ answer: result.answer });
+    const { figures } = result.verification;
+    const notFound = figures.filter((f) => f.status === "not found");
+    const unchecked = figures.filter((f) => f.status === "unchecked").length;
+    console.log(
+      `[verify] ${figures.length} figures, ${notFound.length} not found` +
+        (notFound.length ? `: ${notFound.map((f) => f.text).join(", ")}` : "") +
+        (unchecked ? `, ${unchecked} unchecked (no company named)` : ""),
+    );
+    res.json({ answer: result.answer, verification: result.verification });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: String(err) });

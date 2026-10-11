@@ -5,6 +5,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { companies } from "./data.ts";
 import { executeTool, toolSchemas } from "./tools.ts";
+import { verifyAnswer, type Verification } from "./verifier.ts";
 
 const MODEL = process.env.ROGO_MODEL ?? "claude-sonnet-5";
 const MAX_ITERATIONS = 12;
@@ -42,6 +43,7 @@ export type AgentEvent =
 export interface AgentResult {
   answer: string;
   iterations: number;
+  verification: Verification;
 }
 
 function textOf(message: Anthropic.Message): string {
@@ -109,11 +111,9 @@ export async function runAgent(
   }
 
   if (!draft) {
-    return {
-      answer:
-        "I couldn't put together a reliable answer from the sources I checked. Try asking a narrower question.",
-      iterations,
-    };
+    const answer =
+      "I couldn't put together a reliable answer from the sources I checked. Try asking a narrower question.";
+    return { answer, iterations, verification: verifyAnswer(answer) };
   }
 
   // Polish the draft before showing it to the analyst.
@@ -129,5 +129,6 @@ export async function runAgent(
     ],
   });
 
-  return { answer: textOf(edited), iterations };
+  const answer = textOf(edited);
+  return { answer, iterations, verification: verifyAnswer(answer) };
 }
