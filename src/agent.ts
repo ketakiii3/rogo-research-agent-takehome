@@ -83,25 +83,30 @@ export async function runAgent(
       onEvent({ type: "tool_start", name: use.name, input: use.input });
 
       let content: string;
+      let isError = false;
       try {
         const output = await executeTool(use.name, use.input as Record<string, unknown>);
         content = JSON.stringify(output);
       } catch (err) {
         const message = err instanceof Error ? err.message : String(err);
-        content = `${use.name} returned: ${message}`;
+        content = `${use.name} failed: ${message}`;
+        isError = true;
         onEvent({ type: "tool_failed", name: use.name, message });
       }
 
       onEvent({ type: "tool_end", name: use.name, ms: Date.now() - startedAt });
-      toolResults.push({ type: "tool_result", tool_use_id: use.id, content });
+      toolResults.push({ type: "tool_result", tool_use_id: use.id, content, is_error: isError });
     }
 
     messages.push({ role: "user", content: toolResults });
   }
 
   if (!draft) {
-    draft =
-      "I looked at a number of sources but ran out of research steps before I could pull the answer together. Try asking a narrower question.";
+    return {
+      answer:
+        "I couldn't put together a reliable answer from the sources I checked. Try asking a narrower question.",
+      iterations,
+    };
   }
 
   // Polish the draft before showing it to the analyst.
@@ -112,7 +117,7 @@ export async function runAgent(
     messages: [
       {
         role: "user",
-        content: `Research transcript:\n${JSON.stringify(messages)}\n\nDraft answer:\n${draft}\n\nRewrite the draft answer.`,
+        content: `Draft answer:\n${draft}\n\nRewrite the draft answer.`,
       },
     ],
   });
