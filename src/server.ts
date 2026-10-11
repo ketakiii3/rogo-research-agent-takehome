@@ -34,6 +34,9 @@ app.post("/api/chat", async (req, res) => {
       }
     });
 
+    console.log(
+      `[usage] ${result.usage.inputTokens} input tokens, ${result.usage.outputTokens} output tokens`,
+    );
     const { figures } = result.verification;
     const notFound = figures.filter((f) => f.status === "not found");
     const unchecked = figures.filter((f) => f.status === "unchecked").length;

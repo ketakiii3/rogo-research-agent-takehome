@@ -44,6 +44,8 @@ export interface AgentResult {
   answer: string;
   iterations: number;
   verification: Verification;
+  /** Summed over every model call for the question, including the editor. */
+  usage: { inputTokens: number; outputTokens: number };
 }
 
 function textOf(message: Anthropic.Message): string {
@@ -61,6 +63,11 @@ export async function runAgent(
 
   let draft = "";
   let iterations = 0;
+  const usage = { inputTokens: 0, outputTokens: 0 };
+  const addUsage = (message: Anthropic.Message) => {
+    usage.inputTokens += message.usage.input_tokens;
+    usage.outputTokens += message.usage.output_tokens;
+  };
 
   while (iterations < MAX_ITERATIONS) {
     iterations++;
@@ -73,6 +80,7 @@ export async function runAgent(
       tools: toolSchemas,
       messages,
     });
+    addUsage(response);
 
     messages.push({ role: "assistant", content: response.content });
 
@@ -85,27 +93,27 @@ export async function runAgent(
       break;
     }
 
-    const toolResults: Anthropic.ToolResultBlockParam[] = [];
+    const toolResults = await Promise.all(
+      toolUses.map(async (use): Promise<Anthropic.ToolResultBlockParam> => {
+        const startedAt = Date.now();
+        onEvent({ type: "tool_start", name: use.name, input: use.input });
 
-    for (const use of toolUses) {
-      const startedAt = Date.now();
-      onEvent({ type: "tool_start", name: use.name, input: use.input });
+        let content: string;
+        let isError = false;
+        try {
+          const output = await executeTool(use.name, use.input as Record<string, unknown>);
+          content = JSON.stringify(output);
+        } catch (err) {
+          const message = err instanceof Error ? err.message : String(err);
+          content = `${use.name} failed: ${message}`;
+          isError = true;
+          onEvent({ type: "tool_failed", name: use.name, message });
+        }
 
-      let content: string;
-      let isError = false;
-      try {
-        const output = await executeTool(use.name, use.input as Record<string, unknown>);
-        content = JSON.stringify(output);
-      } catch (err) {
-        const message = err instanceof Error ? err.message : String(err);
-        content = `${use.name} failed: ${message}`;
-        isError = true;
-        onEvent({ type: "tool_failed", name: use.name, message });
-      }
-
-      onEvent({ type: "tool_end", name: use.name, ms: Date.now() - startedAt });
-      toolResults.push({ type: "tool_result", tool_use_id: use.id, content, is_error: isError });
-    }
+        onEvent({ type: "tool_end", name: use.name, ms: Date.now() - startedAt });
+        return { type: "tool_result", tool_use_id: use.id, content, is_error: isError };
+      }),
+    );
 
     messages.push({ role: "user", content: toolResults });
   }
@@ -113,7 +121,7 @@ export async function runAgent(
   if (!draft) {
     const answer =
       "I couldn't put together a reliable answer from the sources I checked. Try asking a narrower question.";
-    return { answer, iterations, verification: verifyAnswer(answer) };
+    return { answer, iterations, verification: verifyAnswer(answer), usage };
   }
 
   // Polish the draft before showing it to the analyst.
@@ -128,7 +136,8 @@ export async function runAgent(
       },
     ],
   });
+  addUsage(edited);
 
   const answer = textOf(edited).trim() || draft;
-  return { answer, iterations, verification: verifyAnswer(answer) };
+  return { answer, iterations, verification: verifyAnswer(answer), usage };
 }
