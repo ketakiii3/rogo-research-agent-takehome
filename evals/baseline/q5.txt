@@ -1,0 +1,27 @@
+On most quality-of-business measures, **Initech (ITCH) is the stronger business** — even though Globex (GLBX) is far bigger.
+
+**Growth**
+- ITCH revenue grew from $640M to $988M (FY21–FY24), roughly a 15–16% CAGR, as it shifts from perpetual licenses (now 19% of revenue) to subscriptions (62%). That mix shift also makes revenue more durable and predictable.
+- GLBX has been nearly flat, $8.42B to $8.91B (FY21–FY25), about a 1.4% CAGR, with a dip in FY23. Growth is lumpy and tied to cyclical industrial markets.
+
+**Profitability (FY24/FY25)**
+
+| Metric | GLBX | ITCH |
+|---|---|---|
+| Gross margin | ~30–31% | ~75% |
+| Operating margin | ~9.8–9.9% | ~17–17.5% |
+| Net margin | ~7.3% | ~13% |
+| FCF margin | ~6% | ~10.5% |
+
+ITCH's software economics — high gross margins, low cost to serve each incremental customer — give it much better operating leverage and cash conversion than GLBX's industrial cost structure.
+
+**Durability**
+- ITCH's subscription base is sticky: once its software is embedded in a bank's workflow, switching costs are high. The risks are that it's still mid-transition (legacy license revenue is a drag), it's small (3,050 employees), and it's concentrated in one vertical — financial institutions.
+- GLBX benefits from diversification across three segments (Energy Equipment 34%, Building Products 39%, Specialty Chemicals 27%) and geography (about half its revenue is outside North America), which reduces single-market risk. But it's capital-intensive, its margins are capped by manufacturing economics, and its growth tracks the broader economic cycle rather than a secular trend.
+
+**Bottom line**
+If "better business" means superior economics — margins, capital intensity, growth, recurring revenue — ITCH wins clearly: double the operating margin, 75% gross margins versus 30%, and double-digit growth versus GLBX's roughly flat top line.
+
+If you weight scale, diversification, and resilience instead, GLBX has the edge — it's a global industrial conglomerate with end-market and geographic diversity that ITCH, as a smaller, single-vertical software company, doesn't have.
+
+So: ITCH is the better business by quality-of-economics standards; GLBX is the larger, more diversified, more resilient one. Want me to dig into balance sheet leverage or segment-level detail to sharpen this further?

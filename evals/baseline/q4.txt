@@ -1,0 +1,22 @@
+## Acme Robotics (ACMR) is the fastest grower, by a wide margin
+
+Here's how revenue growth compares across the five companies:
+
+| Company | FY21 Revenue | FY25 Revenue | 4-Yr CAGR | Latest YoY (FY24→FY25) |
+|---|---|---|---|---|
+| **Acme Robotics (ACMR)** | $210M | $1,015M | **~48%** | **~47%** |
+| Initech (ITCH)* | $640M | $988M (FY24) | ~16% (3-yr) | ~15% |
+| Umbrella Health (UMBR) | $3,120M | $4,395M | ~9% | ~10% |
+| Acme Corp (ACME) | $1,840M | $2,260M | ~5% | ~5% |
+| Globex Inc (GLBX) | $8,420M | $8,905M | ~1% | ~2% |
+
+*Initech hasn't filed FY2025 yet — only preliminary guidance exists in an 8-K — so its numbers cover FY2021–FY2024.
+
+**Why Acme Robotics is the clear standout:**
+- Revenue is up nearly 5x in four years ($210M → $1,015M) — roughly triple the pace of Initech, the next-fastest grower.
+- Growth has stayed strong and even accelerated year over year: 45% (FY22), 48% (FY23), 53% (FY24), 47% (FY25).
+- Profitability is scaling right alongside revenue: gross margin rose from 51.4% to 53.0%, operating income grew almost 6x (to $51.4M), and net income climbed to $38M.
+
+**Some context:** ACMR is a small, early-stage robotics company (about 1,180 employees) that sells collaborative robotic arms and software to contract manufacturers and logistics operators. It's starting from a much smaller base than the others, which helps explain the outsized growth rate. By comparison, Globex and Umbrella Health are large, mature businesses growing in the high single digits mostly through scale and M&A; Acme Corp (the larger industrial-automation company with a similar name) is growing mid-single digits; and Initech is the strongest of the mature names, posting mid-teens growth as it shifts toward a subscription model.
+
+Want me to pull Initech's preliminary FY2025 guidance from its recent 8-K, or dig deeper into what's fueling Acme Robotics' growth — unit volumes, pricing, new customer wins, etc.?

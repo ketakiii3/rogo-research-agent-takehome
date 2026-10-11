@@ -1,0 +1,28 @@
+Quick note: I'm comparing **Globex Inc (GLBX)** with **Acme Corp (ACME)**, the industrial automation company — not the unrelated Acme Robotics (ACMR). Let me know if you meant that one instead.
+
+## Bottom line: Acme Corp is growing faster than Globex — on revenue, profit, and cash flow — despite being about a quarter of its size.
+
+**Revenue growth**
+
+| Metric | Acme Corp | Globex Inc |
+|---|---|---|
+| FY2021 revenue | $1,840M | $8,420M |
+| FY2025 revenue | $2,260M | $8,905M |
+| 4-yr CAGR | **~5.3%** | ~1.4% |
+| FY2025 YoY growth | **5.5%** | 2.1% |
+
+Globex's growth isn't just slower, it's also choppier — revenue actually dipped in FY2023 ($8,610M → $8,395M) before recovering. That fits its profile as a diversified conglomerate exposed to cyclical markets (energy equipment, building products, specialty chemicals) with meaningful FX drag from its international mix. Acme, by contrast, has posted steady growth every single year.
+
+**Profitability growth (4-yr CAGR)**
+
+| Metric | Acme Corp | Globex Inc |
+|---|---|---|
+| Operating income | **~7.5%** | ~4.0% |
+| Net income | **~7.5%** | ~4.0% |
+| Free cash flow | **~7.5%** | ~4.0% |
+
+Acme's profit is growing roughly 1.8x as fast, and the gap widened further in FY2025: net income grew 7.6% at Acme versus 4.7% at Globex.
+
+**Margins tell the same story.** Acme's gross margin climbed steadily from 38.1% to 39.7% over the period, reflecting operating leverage from sensor and PLC volume growth. Globex's margin is both structurally lower and improving more slowly, from 29.2% to 30.8%.
+
+**Takeaway:** Acme wins on every growth metric — revenue, operating income, net income, and free cash flow. Globex is far bigger in absolute terms (about 4x Acme's revenue), but its growth is being diluted by scale, cyclicality, and international exposure. If the question is who's building momentum faster, it's clearly Acme.
