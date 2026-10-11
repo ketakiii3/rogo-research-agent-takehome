@@ -13,6 +13,12 @@ describe("verifyAnswer: planted figures", () => {
     ]);
   });
 
+  it("finds annual free cash flow in dollars", () => {
+    expect(statusOf("Globex Inc FY2025 free cash flow was $535.6M.")).toEqual([
+      ["$535.6M", "one source"],
+    ]);
+  });
+
   it("flags a revenue figure that matches nothing", () => {
     expect(statusOf("Acme Corp revenue was $2.31B.")).toEqual([["$2.31B", "not found"]]);
   });

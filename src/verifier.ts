@@ -139,6 +139,7 @@ function structuredCandidates(company: Company): Candidate[] {
     add("$M", revenue, `${tag} ${fy} revenue`);
     add("$M", y.operatingIncome!, `${tag} ${fy} operatingIncome`);
     add("$M", y.netIncome!, `${tag} ${fy} netIncome`);
+    add("$M", y.freeCashFlow!, `${tag} ${fy} freeCashFlow`);
     add("%", pct(y.grossMargin!), `${tag} ${fy} gross margin`);
     add("%", pct(y.operatingIncome! / revenue), `${tag} ${fy} operating margin`);
     add("%", pct(y.netIncome! / revenue), `${tag} ${fy} net margin`);
