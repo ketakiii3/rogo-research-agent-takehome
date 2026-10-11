@@ -4,12 +4,31 @@
  */
 
 import type Anthropic from "@anthropic-ai/sdk";
-import { companies, documents, financials } from "./data.ts";
+import { companies, documents, financials, type Company } from "./data.ts";
 
 /** Thrown when a tool cannot service a request. */
 export class ToolError extends Error {}
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/** Resolves a company name or ticker to exactly one company in the coverage universe. */
+export function findCompany(name: string): Company {
+  const needle = String(name).trim().toLowerCase();
+  const exact = companies.find((c) => c.name.toLowerCase() === needle);
+  if (exact) return exact;
+
+  const candidates = companies.filter(
+    (c) => c.ticker.toLowerCase() === needle || c.name.toLowerCase().includes(needle),
+  );
+  if (candidates.length === 1) return candidates[0];
+  if (candidates.length > 1) {
+    const list = candidates.map((c) => `${c.name} (${c.ticker})`).join(", ");
+    throw new ToolError(
+      `"${name}" is ambiguous; it matches ${list}. Ask the analyst which company they mean.`,
+    );
+  }
+  throw new ToolError(`"${name}" is not in our coverage universe.`);
+}
 
 export const toolSchemas: Anthropic.Tool[] = [
   {
@@ -31,7 +50,7 @@ export const toolSchemas: Anthropic.Tool[] = [
     input_schema: {
       type: "object",
       properties: {
-        company: { type: "string", description: "The company name." },
+        company: { type: "string", description: "The company name or ticker." },
       },
       required: ["company"],
     },
@@ -43,7 +62,7 @@ export const toolSchemas: Anthropic.Tool[] = [
     input_schema: {
       type: "object",
       properties: {
-        company: { type: "string", description: "The company name." },
+        company: { type: "string", description: "The company name or ticker." },
       },
       required: ["company"],
     },
@@ -51,7 +70,7 @@ export const toolSchemas: Anthropic.Tool[] = [
   {
     name: "searchDocuments",
     description:
-      "Keyword search over earnings call transcripts, filing excerpts and press releases.",
+      "Keyword search over earnings call transcripts, filing excerpts and press releases. Use at most 6 keywords.",
     input_schema: {
       type: "object",
       properties: {
@@ -69,7 +88,9 @@ export const toolSchemas: Anthropic.Tool[] = [
 async function searchCompanies(query: string) {
   await sleep(250);
   const needle = String(query).toLowerCase();
-  const matches = companies.filter((c) => c.name.toLowerCase().includes(needle));
+  const matches = companies.filter(
+    (c) => c.name.toLowerCase().includes(needle) || c.ticker.toLowerCase() === needle,
+  );
   return matches.map((c) => ({
     name: c.name,
     ticker: c.ticker,
@@ -79,16 +100,13 @@ async function searchCompanies(query: string) {
 
 async function getCompanyProfile(company: string) {
   await sleep(450);
-  const match = companies.find((c) => c.name === company);
-  if (!match) {
-    throw new ToolError(`no profile found for "${company}"`);
-  }
-  return match;
+  return findCompany(company);
 }
 
 async function getFinancials(company: string) {
   await sleep(800);
-  const record = financials.find((f) => f.company === company);
+  const match = findCompany(company);
+  const record = financials.find((f) => f.company === match.name);
   if (!record) {
     throw new ToolError(`no financials found for "${company}"`);
   }
@@ -106,9 +124,8 @@ async function searchDocuments(query: string, company?: string) {
     );
   }
 
-  const pool = company
-    ? documents.filter((d) => d.company === company)
-    : documents;
+  const match = company ? findCompany(company) : undefined;
+  const pool = match ? documents.filter((d) => d.company === match.name) : documents;
 
   const scored = pool.map((doc) => {
     const haystack = `${doc.title} ${doc.body}`.toLowerCase();
@@ -119,11 +136,17 @@ async function searchDocuments(query: string, company?: string) {
     return { doc, score };
   });
 
-  return scored
+  const results = scored
     .filter((s) => s.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, 5)
     .map((s) => s.doc);
+
+  if (results.length === 0) {
+    const scope = match ? ` for ${match.name}` : "";
+    return `No documents matched "${query}"${scope}. Try fewer or different keywords.`;
+  }
+  return results;
 }
 
 export async function executeTool(
