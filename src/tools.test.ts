@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { findCompany } from "./tools.ts";
+import { executeTool, findCompany } from "./tools.ts";
 
 describe("findCompany", () => {
   it("resolves a ticker", () => {
@@ -27,5 +27,19 @@ describe("findCompany", () => {
 
   it("throws for a company outside the coverage universe", () => {
     expect(() => findCompany("Wayne Enterprises")).toThrow(/not in our coverage universe/);
+  });
+});
+
+describe("getFinancials", () => {
+  it("returns figures and warnings but not provenance", async () => {
+    const record = (await executeTool("getFinancials", { company: "Initech" })) as Record<
+      string,
+      unknown
+    >;
+    expect(record).not.toHaveProperty("provenance");
+    expect(record.warnings).toContain(
+      "FY2025 has not been filed yet; the 8-K dated 2026-01-30 gives preliminary revenue guidance only.",
+    );
+    expect(record).toHaveProperty("annual");
   });
 });

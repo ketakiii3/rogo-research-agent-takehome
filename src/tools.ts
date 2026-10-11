@@ -113,7 +113,8 @@ async function getFinancials(company: string) {
   if (!record) {
     throw new ToolError(`no financials found for "${company}"`);
   }
-  return record;
+  const { provenance, ...figures } = record;
+  return figures;
 }
 
 async function searchDocuments(query: string, company?: string) {
