@@ -1,0 +1,12 @@
+Umbrella Health's FY2025 10-K and earnings call point to three main risks, all tied to its acquisition-heavy growth model:
+
+**1. Heavy reliance on M&A to drive growth**
+Acquisitions accounted for about 6.5 points of the company's 9.6% revenue growth in FY2025 — organic (same-clinic) growth was just 3.1%. Management says future growth depends on finding suitable clinic groups at reasonable prices and integrating them smoothly. This looks like a structural vulnerability: FY2026 guidance of 8–10% growth already assumes half will come from deals still under letter of intent, so the model has little room to maneuver if the acquisition pipeline dries up.
+
+**2. Exposure to government reimbursement rates**
+About 41% of Clinic Operations revenue came from government reimbursement in FY2025, leaving the company exposed to any changes in Medicare/Medicaid or other payer rates — a standard but significant risk for outpatient clinic operators.
+
+**3. Margin pressure from integration costs and wage inflation**
+Operating margin slipped 20 basis points to 7.4%, which management linked to integration costs from two recent regional acquisitions and rising nursing wages. These look like ongoing headwinds rather than one-time hits.
+
+One caveat: I could only pull the FY2025 10-K excerpt and Q4 earnings call, not a full risk-factors section — so typical items like cybersecurity/HIPAA, competition, or leverage risks may be missing here. Let me know if you'd like me to check the FY2024 10-K or dig into the financials for leverage and goodwill exposure given the pace of acquisitions.

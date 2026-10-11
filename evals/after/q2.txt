@@ -1,0 +1,10 @@
+Revenue grew from $4,010M in FY2024 to $4,395M in FY2025 [financials: Umbrella Health FY2025, FY2024], which works out to (4,395 − 4,010) / 4,010 = **9.6%** growth. This matches the 9.6% figure cited in both the earnings call and the 10-K excerpt [DOC-UMBR-001][DOC-UMBR-002] — so no discrepancy there.
+
+On operating margin, FY2025 operating income of $367.4M on revenue of $4,395M works out to 8.4% [financials: Umbrella Health FY2025], compared to FY2024's $325.6M on $4,010M, or 8.1% [financials: Umbrella Health FY2024] — a slight *increase* at the full-year level. This doesn't line up with the Q4 earnings call, which cited "operating margin was 7.4%, down 20 basis points" [DOC-UMBR-001]. That commentary likely refers to Q4 specifically, or to a different margin measure, rather than the full-year figure in getFinancials — so I'm flagging this discrepancy rather than trying to reconcile it.
+
+**Summary of biggest flagged risks:**
+1. Heavy reliance on acquisitions for growth — 6.5 of the 9.6 points of FY2025 growth came from acquisitions, with only about 3.1 points organic. This creates risk around sourcing deals at acceptable valuations and integrating them without disrupting patient volumes [DOC-UMBR-002].
+2. Concentration in government reimbursement (~41% of Clinic Operations revenue), which exposes the company to policy or rate changes [DOC-UMBR-002].
+3. Margin pressure from integration costs and nursing wage inflation, as noted in the most recent quarter [DOC-UMBR-001].
+
+I couldn't find any documents addressing cybersecurity, data breach, or litigation risks for Umbrella Health — the keyword search turned up no matches, so I can't confirm whether these topics are covered elsewhere in the filing.

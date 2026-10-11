@@ -1,0 +1,19 @@
+## Initech's Subscription Transition
+
+**Progress on mix shift:**
+Subscription revenue made up 62% of total revenue in FY2024, up from prior years, with Perpetual License and Professional Services each at 19% [financials: Initech FY2024; company profile: Initech]. Preliminary FY2025 guidance points to subscription reaching roughly 68% of total revenue, continuing the shift away from perpetual licenses [DOC-ITCH-001].
+
+**Growth trajectory:**
+FY2024 total revenue was $988M, up 14.8% year-over-year — matching the "third consecutive year of low-to-mid teens growth" described in the earnings call [DOC-ITCH-002]. This is directionally consistent with getFinancials, which shows FY2023→FY2024 revenue growth of (988−861)/861 = 14.8% [financials: Initech FY2023, FY2024], so the two sources agree.
+
+Within that total, subscription revenue grew 26% while perpetual license revenue declined 19% — a pattern management called "expected under the transition" [DOC-ITCH-002]. Net revenue retention was 112% in FY2024, indicating existing subscription customers are expanding their spend [DOC-ITCH-002].
+
+**FY2025 outlook (preliminary, unaudited):**
+Revenue is guided to $1.12B–$1.14B, implying growth of roughly 13%–15% over FY2024's $988M [DOC-ITCH-001]. Checking the raw figures: $1.12B/$988M − 1 = 13.4%, and $1.14B/$988M − 1 = 15.4% — consistent with the guided 13–15% range [DOC-ITCH-001; financials: Initech FY2024].
+
+**Important caveats:**
+- The FY2025 figures are preliminary and unaudited; Initech's 10-K filing will be delayed as the company completes a review of revenue recognition on a set of multi-year contracts signed in Q4 2025 — final results "may differ materially" from these estimates [DOC-ITCH-001]. Since subscription contracts are often multi-year, this review could specifically affect how the subscription transition numbers are ultimately reported.
+- Management has stated it has deliberately avoided discounting to accelerate perpetual-to-subscription conversions, framing the conversion pace itself as the "principal risk" to the transition plan [DOC-ITCH-002].
+- FY2023 professional services revenue is flagged as unaudited in the financials data [financials: Initech, warnings].
+
+**Bottom line:** The subscription transition is progressing as planned — mix moved from 62% in FY2024 toward a guided 68% in FY2025, with double-digit subscription growth offsetting an intentional decline in perpetual licenses, and retention rates above 110%. That said, the FY2025 numbers remain preliminary pending resolution of a revenue-recognition review on Q4 multi-year contracts, which adds some uncertainty to how cleanly this transition will show up in the final audited results.

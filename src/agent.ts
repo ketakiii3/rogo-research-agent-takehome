@@ -5,6 +5,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { companies } from "./data.ts";
 import { executeTool, toolSchemas } from "./tools.ts";
+import { verifyAnswer, type Verification } from "./verifier.ts";
 
 const MODEL = process.env.ROGO_MODEL ?? "claude-sonnet-5";
 const MAX_ITERATIONS = 12;
@@ -16,15 +17,22 @@ const SYSTEM_PROMPT = `You are Rogo Research, an assistant that answers question
 Use the tools to look up companies, profiles, financials and source documents. Answer the analyst's question.
 
 Our coverage universe:
-${companies
-  .map(
-    (c) =>
-      `- ${c.name} (${c.ticker}) — ${c.sector}, HQ ${c.hq}, ${c.employees} employees. ${c.description}`,
-  )
-  .join("\n")}
+${companies.map((c) => `- ${c.name} (${c.ticker})`).join("\n")}
+
+Rules:
+- Take every number from a tool result. For a derived figure (growth rate, CAGR, margin, ratio), show the inputs and the calculation.
+- Cite each figure and factual claim: [financials: <company> FY<year>] for getFinancials data, or the document ID, e.g. [DOC-ITCH-001].
+- Search the documents before stating causes, risks or outlook. Give a reason for a trend only if a document states it; otherwise describe the trend without explaining it.
+- When you use a document figure that getFinancials also covers, check it against getFinancials. If they differ, report both and say they disagree.
+- Keep caveats from tool results: preliminary or unaudited figures, delayed filings, reviews, warnings and guided slowdowns.
+- When growth includes acquisitions, give organic and acquired growth separately if the sources split them.
+- If a company name is ambiguous, ask which company the analyst means, or answer for one and state that assumption first.
+- If a tool fails or finds nothing, say what you could not get. Do not fill the gap from memory.
 `;
 
-const EDITOR_PROMPT = `You are an editor. Rewrite the analyst's draft answer so that it reads clearly and is easy to follow. Keep it brief and conversational. Return only the rewritten answer.`;
+const EDITOR_PROMPT = `You are an editor. Rewrite the analyst's draft answer so that it reads clearly and is easy to follow. Keep it conversational. Return only the rewritten answer.
+
+Do not change, add or remove any number, calculation, citation or caveat, and do not add claims that are not in the draft.`;
 
 export type AgentEvent =
   | { type: "iteration"; n: number }
@@ -35,6 +43,9 @@ export type AgentEvent =
 export interface AgentResult {
   answer: string;
   iterations: number;
+  verification: Verification;
+  /** Summed over every model call for the question, including the editor. */
+  usage: { inputTokens: number; outputTokens: number };
 }
 
 function textOf(message: Anthropic.Message): string {
@@ -52,6 +63,11 @@ export async function runAgent(
 
   let draft = "";
   let iterations = 0;
+  const usage = { inputTokens: 0, outputTokens: 0 };
+  const addUsage = (message: Anthropic.Message) => {
+    usage.inputTokens += message.usage.input_tokens;
+    usage.outputTokens += message.usage.output_tokens;
+  };
 
   while (iterations < MAX_ITERATIONS) {
     iterations++;
@@ -64,6 +80,7 @@ export async function runAgent(
       tools: toolSchemas,
       messages,
     });
+    addUsage(response);
 
     messages.push({ role: "assistant", content: response.content });
 
@@ -76,32 +93,35 @@ export async function runAgent(
       break;
     }
 
-    const toolResults: Anthropic.ToolResultBlockParam[] = [];
+    const toolResults = await Promise.all(
+      toolUses.map(async (use): Promise<Anthropic.ToolResultBlockParam> => {
+        const startedAt = Date.now();
+        onEvent({ type: "tool_start", name: use.name, input: use.input });
 
-    for (const use of toolUses) {
-      const startedAt = Date.now();
-      onEvent({ type: "tool_start", name: use.name, input: use.input });
+        let content: string;
+        let isError = false;
+        try {
+          const output = await executeTool(use.name, use.input as Record<string, unknown>);
+          content = JSON.stringify(output);
+        } catch (err) {
+          const message = err instanceof Error ? err.message : String(err);
+          content = `${use.name} failed: ${message}`;
+          isError = true;
+          onEvent({ type: "tool_failed", name: use.name, message });
+        }
 
-      let content: string;
-      try {
-        const output = await executeTool(use.name, use.input as Record<string, unknown>);
-        content = JSON.stringify(output);
-      } catch (err) {
-        const message = err instanceof Error ? err.message : String(err);
-        content = `${use.name} returned: ${message}`;
-        onEvent({ type: "tool_failed", name: use.name, message });
-      }
-
-      onEvent({ type: "tool_end", name: use.name, ms: Date.now() - startedAt });
-      toolResults.push({ type: "tool_result", tool_use_id: use.id, content });
-    }
+        onEvent({ type: "tool_end", name: use.name, ms: Date.now() - startedAt });
+        return { type: "tool_result", tool_use_id: use.id, content, is_error: isError };
+      }),
+    );
 
     messages.push({ role: "user", content: toolResults });
   }
 
   if (!draft) {
-    draft =
-      "I looked at a number of sources but ran out of research steps before I could pull the answer together. Try asking a narrower question.";
+    const answer =
+      "I couldn't put together a reliable answer from the sources I checked. Try asking a narrower question.";
+    return { answer, iterations, verification: verifyAnswer(answer), usage };
   }
 
   // Polish the draft before showing it to the analyst.
@@ -112,10 +132,12 @@ export async function runAgent(
     messages: [
       {
         role: "user",
-        content: `Research transcript:\n${JSON.stringify(messages)}\n\nDraft answer:\n${draft}\n\nRewrite the draft answer.`,
+        content: `Draft answer:\n${draft}\n\nRewrite the draft answer.`,
       },
     ],
   });
+  addUsage(edited);
 
-  return { answer: textOf(edited), iterations };
+  const answer = textOf(edited).trim() || draft;
+  return { answer, iterations, verification: verifyAnswer(answer), usage };
 }

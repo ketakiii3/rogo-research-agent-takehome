@@ -1,0 +1,23 @@
+Note: "Acme" is ambiguous in our coverage — there's **Acme Corp (ACME)** and **Acme Robotics (ACMR)**. I've compared both against **Globex Inc (GLBX)** below.
+
+## Revenue growth, FY2021–FY2025
+
+| Company | FY2021 | FY2025 | 4-yr CAGR | FY2024→FY2025 YoY |
+|---|---|---|---|---|
+| Acme Corp | $1,840M | $2,260M | (2260/1840)^(1/4)-1 = **5.3%** | (2260-2143)/2143 = **5.5%** |
+| Acme Robotics | $210M | $1,015M | (1015/210)^(1/4)-1 = **48.2%** | (1015-690)/690 = **47.1%** |
+| Globex Inc | $8,420M | $8,905M | (8905/8420)^(1/4)-1 = **1.4%** | (8905-8720)/8720 = **2.1%** |
+
+[financials: Acme Corp FY2021, FY2024, FY2025], [financials: Acme Robotics FY2021, FY2024, FY2025], [financials: Globex Inc FY2021, FY2024, FY2025]
+
+### Takeaways
+- **Acme Robotics is by far the fastest-growing** of the three, more than quadrupling revenue from $210M to $1,015M over four years, with growth accelerating each year (45–49% YoY in recent years) [financials: Acme Robotics FY2021–FY2025].
+- **Acme Corp** has grown steadily at a mid-single-digit pace (~5–6% annually), with revenue rising from $1,840M to $2,260M [financials: Acme Corp FY2021–FY2025].
+- **Globex** is the largest by revenue (~$8.9B vs. Acme Corp's $2.3B and Acme Robotics' $1.0B) but the slowest grower, with revenue actually dipping in FY2023 ($8,395M) before recovering [financials: Globex Inc FY2021–FY2025]. Its 4-year CAGR of ~1.4% is well below both Acme entities.
+
+### Profitability trend alongside growth
+- Acme Corp's gross margin has expanded modestly, from 38.1% (FY2021) to 39.7% (FY2025) [financials: Acme Corp FY2021, FY2025].
+- Acme Robotics has higher and also expanding gross margins, from 51.4% to 53.0% [financials: Acme Robotics FY2021, FY2025].
+- Globex has the lowest gross margin of the three, rising from 29.2% to 30.8% [financials: Globex Inc FY2021, FY2025].
+
+I didn't find any document discussing what's driving these growth differences (e.g., acquisitions vs. organic growth, segment mix, or the cause of Globex's FY2023 revenue dip). If you'd like, I can dig into transcripts and filings for commentary on why Globex's growth lags or what's fueling Acme Robotics' acceleration. Also, let me know whether "Acme" refers to Acme Corp, Acme Robotics, or both so I can address future questions correctly.
