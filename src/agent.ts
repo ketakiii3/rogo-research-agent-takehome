@@ -129,6 +129,6 @@ export async function runAgent(
     ],
   });
 
-  const answer = textOf(edited);
+  const answer = textOf(edited).trim() || draft;
   return { answer, iterations, verification: verifyAnswer(answer) };
 }

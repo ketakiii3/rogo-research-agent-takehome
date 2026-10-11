@@ -14,6 +14,12 @@ describe("findCompany", () => {
     expect(findCompany("Globex").name).toBe("Globex Inc");
   });
 
+  it("resolves an input that contains the full name", () => {
+    expect(findCompany("Globex Inc.").name).toBe("Globex Inc");
+    expect(findCompany("Acme Corporation").name).toBe("Acme Corp");
+    expect(findCompany("Initech Corp").name).toBe("Initech");
+  });
+
   it("throws on an ambiguous name, listing every candidate", () => {
     expect(() => findCompany("Acme")).toThrow(/Acme Corp \(ACME\)/);
     expect(() => findCompany("Acme")).toThrow(/Acme Robotics \(ACMR\)/);

@@ -18,7 +18,10 @@ export function findCompany(name: string): Company {
   if (exact) return exact;
 
   const candidates = companies.filter(
-    (c) => c.ticker.toLowerCase() === needle || c.name.toLowerCase().includes(needle),
+    (c) =>
+      c.ticker.toLowerCase() === needle ||
+      c.name.toLowerCase().includes(needle) ||
+      needle.includes(c.name.toLowerCase()),
   );
   if (candidates.length === 1) return candidates[0];
   if (candidates.length > 1) {
