@@ -1,0 +1,41 @@
+## GLBX vs. ITCH: Business Quality Comparison
+
+These are two very different kinds of businesses — GLBX is an $8.9B diversified industrial conglomerate, while ITCH is a ~$1.1B enterprise software company — so which one is "better" really depends on what you're optimizing for. Here's how they stack up across the key dimensions.
+
+### Growth
+
+| Metric | GLBX | ITCH |
+|---|---|---|
+| Revenue CAGR (FY21–FY25/24) | ~1.4% (FY21 $8,420M → FY25 $8,905M) [financials: Globex Inc FY2021, FY2025] | ~15.6% (FY21 $640M → FY24 $988M) [financials: Initech FY2021, FY2024] |
+| Latest annual growth | +2.1% in FY2025, but only **0.6% organic** — the rest came from two bolt-on acquisitions [DOC-GLBX-001] | +14.8% in FY2024 [DOC-ITCH-002]; FY2025 preliminary guidance of **+13–15%** [DOC-ITCH-001] |
+| 3-yr trend commentary | Management says growth has averaged ~1.9%/year, reflecting "mature end markets" and FX drag; the capital allocation priority is margin expansion, not growth [DOC-GLBX-002] | Third straight year of low-to-mid-teens growth, driven by the subscription transition and vendor consolidation among mid-market financial institutions [DOC-ITCH-002] |
+
+ITCH is growing roughly 10x faster than GLBX, and nearly all of GLBX's growth is acquired rather than organic.
+
+### Profitability
+
+| Metric | GLBX FY2025 | ITCH FY2024 |
+|---|---|---|
+| Gross margin | 30.8% [financials: Globex Inc FY2025] | 74.8% [financials: Initech FY2024] |
+| Operating margin | 9.9% ($878M/$8,905M) [financials: Globex Inc FY2025] | 17.5% ($173.1M/$988M) [financials: Initech FY2024] |
+| Net margin | 7.3% ($649.7M/$8,905M) [financials: Globex Inc FY2025] | 13.0% ($128.1M/$988M) [financials: Initech FY2024] |
+| FCF margin | 6.0% ($535.6M/$8,905M) [financials: Globex Inc FY2025] | 10.7% ($105.6M/$988M) [financials: Initech FY2024] |
+
+ITCH converts revenue to cash and profit far more efficiently — consistent with a software model, versus GLBX's industrial/manufacturing base (energy equipment, building products, specialty chemicals).
+
+### Trajectory / margin direction
+
+GLBX's gross margin has been slowly expanding — from 29.2% in FY2021 to 30.8% in FY2025 [financials: Globex Inc FY2021, FY2025] — consistent with its stated strategy of prioritizing margin expansion and portfolio simplification. That's included closing 11 manufacturing facilities since FY2022, with plans to divest at least one non-core business in FY2026 [DOC-GLBX-002].
+
+ITCH's margins have also crept up, with gross margin rising from 73.6% to 74.8% between FY21 and FY24 [financials: Initech FY2021, FY2024], as the mix shifts toward higher-margin subscription revenue — 62% of FY2024 revenue, expected to rise to 68% in FY2025 [DOC-ITCH-001].
+
+### Key risks / caveats
+
+- **ITCH**: FY2025 figures are preliminary and unaudited. Initech has flagged that its 10-K will be delayed while it reviews revenue recognition on a set of Q4 multi-year contracts, and final results "may differ materially" from the guided $1.12–1.14B range [DOC-ITCH-001]. Management also flags the conversion pace of remaining perpetual-license customers as the main risk to the subscription transition [DOC-ITCH-002].
+- **GLBX**: Organic growth is very weak (0.6% in FY2025), and reported growth leans heavily on acquisitions. Management itself describes end markets as "mature" with FX headwinds on its ~48% non-North America revenue base [DOC-GLBX-001], [DOC-GLBX-002].
+
+### Bottom line
+
+On growth, margins, and cash conversion, **ITCH looks like the structurally better business** — much faster growth, far higher margins, and a subscription-driven mix shift that's improving unit economics further. **GLBX is the larger, more diversified, and currently more stable** business, but it's growing organically at well under 1% and relies on M&A and cost/footprint actions for margin gains.
+
+The main offset is risk: ITCH's FY2025 numbers are preliminary, with an active revenue-recognition review and a delayed 10-K — a real near-term red flag that GLBX doesn't have. If that review resolves cleanly, ITCH is the stronger business on fundamentals; if it doesn't, this assessment could change.

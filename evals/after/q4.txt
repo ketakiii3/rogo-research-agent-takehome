@@ -1,0 +1,31 @@
+# Fastest‑Growing Company: **Acme Robotics (ACMR)**
+
+### Year‑over‑year revenue growth (most recent full year vs. prior year)
+
+| Company | Latest FY revenue | Prior FY revenue | YoY growth |
+|---|---|---|---|
+| **Acme Robotics (ACMR)** | $1,015M (FY2025) | $690M (FY2024) | **+47.1%** |
+| Initech (ITCH)* | $988M (FY2024) | $861M (FY2023) | +14.8% |
+| Umbrella Health (UMBR) | $4,395M (FY2025) | $4,010M (FY2024) | +9.6% |
+| Acme Corp (ACME) | $2,260M (FY2025) | $2,143M (FY2024) | +5.5% |
+| Globex Inc (GLBX) | $8,905M (FY2025) | $8,720M (FY2024) | +2.1% |
+
+*Initech's FY2025 hasn't been filed yet — the 8‑K dated 2026‑01‑30 only gives preliminary revenue guidance — so FY2024 vs. FY2023 is used as the latest complete comparison [financials: Initech FY2024].
+
+[financials: Acme Robotics FY2025], [financials: Acme Robotics FY2024], [financials: Initech FY2024], [financials: Initech FY2023], [financials: Umbrella Health FY2025], [financials: Umbrella Health FY2024], [financials: Acme Corp FY2025], [financials: Acme Corp FY2024], [financials: Globex Inc FY2025], [financials: Globex Inc FY2024]
+
+### 4‑year CAGR (FY2021–FY2025) confirms the ranking
+
+| Company | CAGR | Calculation |
+|---|---|---|
+| **Acme Robotics** | **~48.3%** | (1015/210)^(1/4) − 1 |
+| Initech | ~15.6% | (988/640)^(1/3) − 1 (3‑yr, FY2021–FY2024) |
+| Umbrella Health | ~9.0% | (4395/3120)^(1/4) − 1 |
+| Acme Corp | ~5.3% | (2260/1840)^(1/4) − 1 |
+| Globex Inc | ~1.4% | (8905/8420)^(1/4) − 1 |
+
+[financials: Acme Robotics FY2021], [financials: Initech FY2021], [financials: Umbrella Health FY2021], [financials: Acme Corp FY2021], [financials: Globex Inc FY2021]
+
+### Conclusion
+
+Acme Robotics is growing by a wide margin faster than any other company in the coverage universe — both on a single‑year basis (+47% YoY) and on a 4‑year CAGR basis (~48%), roughly 3x the next‑fastest grower, Initech. Profitability is scaling alongside revenue too: net income grew from $6.4M (FY2021) to $38.0M (FY2025) [financials: Acme Robotics FY2021, FY2025]. That said, I didn't find documents in the search tools explaining the specific drivers behind this growth (e.g., new products, market share gains), so I'm not attributing a cause beyond what the financials themselves show.

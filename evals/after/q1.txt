@@ -1,0 +1,27 @@
+## Acme vs. Globex: Growth Comparison
+
+Note: "Acme" is ambiguous in our coverage — there are two separate companies, **Acme Corp (ACME)** and **Acme Robotics (ACMR)**. I've compared both against Globex Inc (GLBX) below.
+
+### FY2025 revenue (most recent year)
+| Company | FY2024 Revenue | FY2025 Revenue | YoY Growth | FY2021–FY2025 CAGR |
+|---|---|---|---|---|
+| Acme Corp (ACME) | $2,143M | $2,260M | (2,260/2,143 − 1) = **5.5%** | (2,260/1,840)^(1/4) − 1 = **5.3%** |
+| Acme Robotics (ACMR) | $690M | $1,015M | (1,015/690 − 1) = **47.1%** | (1,015/210)^(1/4) − 1 = **48.3%** |
+| Globex Inc (GLBX) | $8,720M | $8,905M | (8,905/8,720 − 1) = **2.1%** | (8,905/8,420)^(1/4) − 1 = **1.4%** |
+
+[financials: Acme Corp FY2024, FY2025], [financials: Acme Robotics FY2024, FY2025], [financials: Globex Inc FY2024, FY2025]
+
+### Verdict
+**Acme Robotics is growing dramatically faster** than both Acme Corp and Globex — roughly 9x Acme Corp's growth rate and over 20x Globex's, on both a one-year and four-year basis. Acme Corp is also outgrowing Globex, though by a much smaller margin (~5.5% vs ~2.1% YoY).
+
+### Context on each (from company disclosures)
+
+- **Acme Corp**: FY2025 growth was driven by Control Systems, as "customers refreshed aging PLC installations," while Sensors and Instrumentation stayed flat on soft automotive demand. Management flagged "extended decision cycles among mid-market discrete manufacturers" persisting into FY2026, and guided for FY2026 growth of only 4–6% [DOC-ACME-001]. Risk factors note cyclicality tied to manufacturing capex and rising competition from Asian suppliers and robotics vendors bundling motion control [DOC-ACME-002].
+
+- **Acme Robotics**: The 47% YoY growth was driven mainly by logistics customers, with Robotic Arms unit volume up 39% and Software/Licensing up 71% (now 29% of revenue). Management explicitly called FY2026 guidance of 30–35% "a deliberate deceleration as the base grows" [DOC-ACMR-001]. A new multi-year logistics partnership (up to 4,000 arms) should support growth, though it will "modestly dilute hardware gross margin," and revenue recognition is weighted toward years two and three of the deal [DOC-ACMR-002].
+
+- **Globex**: FY2025's 2.1% total growth was mostly inorganic — management stated organic growth was only ~0.6%, "with the balance from two bolt-on acquisitions completed in the first half" [DOC-GLBX-001]. The 10-K notes a 3-year average growth rate of ~1.9%, reflecting "mature end markets" and a stated capital-allocation priority of margin expansion over top-line growth [DOC-GLBX-002].
+
+**Caveat:** Globex's growth figure combines organic and acquired growth as disclosed (organic ~0.6%, acquired ~1.5 points); this breakdown isn't available for Acme Corp or Acme Robotics in the sources reviewed.
+
+Let me know if you'd like me to focus the comparison on just one of the two Acme entities, or add margin/FCF trends to the analysis.
